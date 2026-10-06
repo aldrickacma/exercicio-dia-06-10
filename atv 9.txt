@@ -1,0 +1,63 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+
+        int voto;
+
+        int candidato1 = 0;
+        int candidato2 = 0;
+        int candidato3 = 0;
+        int candidato4 = 0;
+        int nulo = 0;
+        int branco = 0;
+
+        System.out.println("Digite o código do voto (0 para encerrar):");
+
+        voto = entrada.nextInt();
+
+        while (voto != 0) {
+
+            switch (voto) {
+                case 1:
+                    candidato1++;
+                    break;
+
+                case 2:
+                    candidato2++;
+                    break;
+
+                case 3:
+                    candidato3++;
+                    break;
+
+                case 4:
+                    candidato4++;
+                    break;
+
+                case 5:
+                    nulo++;
+                    break;
+
+                case 6:
+                    branco++;
+                    break;
+
+                default:
+                    System.out.println("Código de voto inválido!");
+            }
+
+            voto = entrada.nextInt();
+        }
+
+        System.out.println("\nResultado da votação:");
+        System.out.println("Candidato 1: " + candidato1);
+        System.out.println("Candidato 2: " + candidato2);
+        System.out.println("Candidato 3: " + candidato3);
+        System.out.println("Votos nulos: " + nulo);
+        System.out.println("Votos em branco: " + branco);
+
+        entrada.close();
+    }
+}

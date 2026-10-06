@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+
+        int N, A1, R;
+        int soma = 0;
+
+        System.out.print("Quantidade de termos: ");
+        N = entrada.nextInt();
+
+        System.out.print("Primeiro termo: ");
+        A1 = entrada.nextInt();
+
+        System.out.print("Razão: ");
+        R = entrada.nextInt();
+
+        for (int n = 1; n <= N; n++) {
+            int an = A1 + (n - 1) * R;
+
+            System.out.println(an);
+
+            soma += an;
+        }
+
+        System.out.println("Soma dos termos: " + soma);
+
+        entrada.close();
+    }
+}
