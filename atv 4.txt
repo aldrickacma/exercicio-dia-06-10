@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite um número inteiro positivo: ");
+        int n = scanner.nextInt();
+
+        int soma = 0;
+
+        for (int i = n; i >= 1; i--) {
+            System.out.println(i);
+            soma += i;
+        }
+
+        System.out.println("Soma: " + soma);
+
+        scanner.close();
+    }
+}
