@@ -1,0 +1,64 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        double salario;
+        int filhos;
+
+        double somaSalarios = 0;
+        int somaFilhos = 0;
+        double maiorSalario = 0;
+        int quantidadePessoas = 0;
+        int salarioAte100 = 0;
+
+        System.out.print("Digite o salário (negativo para encerrar): ");
+        salario = scanner.nextDouble();
+
+        while (salario >= 0) {
+
+            System.out.print("Digite o número de filhos: ");
+            filhos = scanner.nextInt();
+
+            // Soma dos salários
+            somaSalarios += salario;
+
+            // Soma dos filhos
+            somaFilhos += filhos;
+
+            // Verifica o maior salário
+            if (salario > maiorSalario) {
+                maiorSalario = salario;
+            }
+
+            // Conta salários de até R$ 100
+            if (salario <= 100) {
+                salarioAte100++;
+            }
+
+            quantidadePessoas++;
+
+            System.out.print("Digite o salário (negativo para encerrar): ");
+            salario = scanner.nextDouble();
+        }
+
+        if (quantidadePessoas > 0) {
+            double mediaSalarial = somaSalarios / quantidadePessoas;
+            double mediaFilhos = (double) somaFilhos / quantidadePessoas;
+            double percentualAte100 =
+                    (double) salarioAte100 / quantidadePessoas * 100;
+
+            System.out.println("\n--- RESULTADO ---");
+            System.out.println("Média salarial: R$ " + mediaSalarial);
+            System.out.println("Média de filhos: " + mediaFilhos);
+            System.out.println("Maior salário: R$ " + maiorSalario);
+            System.out.println("Percentual com salário até R$ 100,00: "
+                    + percentualAte100 + "%");
+        } else {
+            System.out.println("Nenhum habitante foi informado.");
+        }
+
+        scanner.close();
+    }
+}
