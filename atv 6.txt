@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite um número inteiro positivo: ");
+        int n = scanner.nextInt();
+
+        double e = 1.0;
+        int fatorial = 1;
+
+        for (int i = 1; i <= n; i++) {
+            fatorial = fatorial * i;
+            e = e + 1.0 / fatorial;
+        }
+
+        System.out.println("Valor de E: " + e);
+
+        scanner.close();
+    }
+}
