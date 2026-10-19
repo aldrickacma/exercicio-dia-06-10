@@ -1,0 +1,75 @@
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Valor do salario minimo:");
+        double minimo = sc.nextDouble();
+
+        double folha = 0;
+        int totalPecas = 0;
+        int homens = 0, mulheres = 0;
+        int pecasHomens = 0, pecasMulheres = 0;
+
+        double maiorSalario = -1;
+        int codigoMaior = 0;
+
+        for (int i = 1; i <= 15; i++) {
+            System.out.println("Numero do operario:");
+            int codigo = sc.nextInt();
+
+            System.out.println("Pecas produzidas:");
+            int pecas = sc.nextInt();
+
+            System.out.println("Sexo (M/F):");
+            char sexo = Character.toUpperCase(sc.next().charAt(0));
+
+            double salario = minimo;
+
+            if (pecas > 30 && pecas <= 50) {
+                salario += (pecas - 30) * minimo * 0.03;
+            } else if (pecas > 50) {
+                salario += (pecas - 30) * minimo * 0.05;
+            }
+
+            System.out.println("Operario: " + codigo);
+            System.out.println("Salario: R$ " + salario);
+
+            folha += salario;
+            totalPecas += pecas;
+
+            if (sexo == 'M') {
+                homens++;
+                pecasHomens += pecas;
+            } else if (sexo == 'F') {
+                mulheres++;
+                pecasMulheres += pecas;
+            }
+
+            if (salario > maiorSalario) {
+                maiorSalario = salario;
+                codigoMaior = codigo;
+            }
+        }
+
+        System.out.println("Total da folha: R$ " + folha);
+        System.out.println("Total de pecas: " + totalPecas);
+
+        if (homens > 0) {
+            System.out.println("Media de pecas dos homens: "
+                    + (pecasHomens / (double) homens));
+        }
+
+        if (mulheres > 0) {
+            System.out.println("Media de pecas das mulheres: "
+                    + (pecasMulheres / (double) mulheres));
+        }
+
+        System.out.println("Operario com maior salario: " + codigoMaior);
+        System.out.println("Maior salario: R$ " + maiorSalario);
+
+        sc.close();
+    }
+}

@@ -1,0 +1,47 @@
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int codigo, acidentes;
+        int codigoMaior = 0, codigoMenor = 0;
+        int maior = 0, menor = 0;
+        long somaVeiculos = 0;
+
+        for (int i = 1; i <= 200; i++) {
+            System.out.println("Codigo da cidade:");
+            codigo = sc.nextInt();
+
+            System.out.println("Estado:");
+            String estado = sc.next();
+
+            System.out.println("Numero de veiculos:");
+            int veiculos = sc.nextInt();
+
+            System.out.println("Numero de acidentes:");
+            acidentes = sc.nextInt();
+
+            somaVeiculos += veiculos;
+
+            if (i == 1 || acidentes > maior) {
+                maior = acidentes;
+                codigoMaior = codigo;
+            }
+
+            if (i == 1 || acidentes < menor) {
+                menor = acidentes;
+                codigoMenor = codigo;
+            }
+        }
+
+        System.out.println("Maior numero de acidentes: " + maior);
+        System.out.println("Codigo da cidade: " + codigoMaior);
+        System.out.println("Menor numero de acidentes: " + menor);
+        System.out.println("Codigo da cidade: " + codigoMenor);
+        System.out.println("Media de veiculos: " + somaVeiculos / 200.0);
+
+        sc.close();
+    }
+}

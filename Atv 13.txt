@@ -1,0 +1,42 @@
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int codigo, quantidade = 0;
+        double preco, novoPreco;
+        double somaAntes = 0, somaDepois = 0;
+
+        while (true) {
+            System.out.println("Codigo do produto (negativo encerra):");
+            codigo = sc.nextInt();
+
+            if (codigo < 0) {
+                break;
+            }
+
+            System.out.println("Preco atual:");
+            preco = sc.nextDouble();
+
+            novoPreco = preco * 1.20;
+
+            System.out.println("Codigo: " + codigo);
+            System.out.println("Novo preco: R$ " + novoPreco);
+
+            somaAntes += preco;
+            somaDepois += novoPreco;
+            quantidade++;
+        }
+
+        if (quantidade > 0) {
+            System.out.println("Media antes: " + somaAntes / quantidade);
+            System.out.println("Media depois: " + somaDepois / quantidade);
+        } else {
+            System.out.println("Nenhum produto informado.");
+        }
+
+        sc.close();
+    }
+}

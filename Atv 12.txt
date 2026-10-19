@@ -1,0 +1,45 @@
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int idade, maiorIdade = 0, mulheres = 0;
+        char sexo;
+        String olhos, cabelos;
+
+        while (true) {
+            System.out.println("Idade (-1 para encerrar):");
+            idade = sc.nextInt();
+
+            if (idade == -1) {
+                break;
+            }
+
+            System.out.println("Sexo (M/F):");
+            sexo = sc.next().charAt(0);
+
+            System.out.println("Olhos (azuis, verdes, castanhos):");
+            olhos = sc.next();
+
+            System.out.println("Cabelos (louros, castanhos, pretos):");
+            cabelos = sc.next();
+
+            if (idade > maiorIdade) {
+                maiorIdade = idade;
+            }
+
+            if (sexo == 'F' && idade >= 18 && idade <= 35
+                    && olhos.equalsIgnoreCase("verdes")
+                    && cabelos.equalsIgnoreCase("louros")) {
+                mulheres++;
+            }
+        }
+
+        System.out.println("Maior idade: " + maiorIdade);
+        System.out.println("Mulheres com as caracteristicas: " + mulheres);
+
+        sc.close();
+    }
+}

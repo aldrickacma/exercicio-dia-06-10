@@ -1,0 +1,29 @@
+
+public class Main {
+
+    static boolean primo(long n) {
+        if (n < 2) return false;
+
+        for (long i = 2; i * i <= n; i++) {
+            if (n % i == 0) return false;
+        }
+
+        return true;
+    }
+
+    public static void main(String[] args) {
+        int encontrados = 0;
+
+        for (int p = 2; encontrados < 5; p++) {
+            if (primo(p)) {
+                long mersenne = (1L << p) - 1;
+
+                if (primo(mersenne)) {
+                    long perfeito = (1L << (p - 1)) * mersenne;
+                    System.out.println(perfeito);
+                    encontrados++;
+                }
+            }
+        }
+    }
+}

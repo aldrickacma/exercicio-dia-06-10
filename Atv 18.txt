@@ -1,0 +1,34 @@
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        for (int i = 1; i <= 75; i++) {
+            System.out.println("Matricula:");
+            String matricula = sc.next();
+
+            System.out.println("Nota final:");
+            double nota = sc.nextDouble();
+
+            char conceito;
+
+            if (nota > 9) {
+                conceito = 'A';
+            } else if (nota >= 7) {
+                conceito = 'B';
+            } else if (nota >= 5) {
+                conceito = 'C';
+            } else {
+                conceito = 'D';
+            }
+
+            System.out.println("Matricula: " + matricula);
+            System.out.println("Nota: " + nota);
+            System.out.println("Conceito: " + conceito);
+        }
+
+        sc.close();
+    }
+}

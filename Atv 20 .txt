@@ -1,0 +1,52 @@
+
+import java.util.Scanner;
+
+public class Main {
+
+    static double fatorial(int n) {
+        double resultado = 1;
+
+        for (int i = 1; i <= n; i++) {
+            resultado *= i;
+        }
+
+        return resultado;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Quantidade de termos:");
+        int n = sc.nextInt();
+
+        System.out.println("Valor positivo de X:");
+        double x = sc.nextDouble();
+
+        double soma = 0;
+        int denominador = 1;
+        int direcao = 1;
+
+        for (int i = 1; i <= n; i++) {
+            double termo = Math.pow(x, i + 1) / fatorial(denominador);
+
+            if (i % 2 == 1) {
+                termo = -termo;
+            }
+
+            soma += termo;
+            System.out.println("Termo " + i + ": " + termo);
+
+            denominador += direcao;
+
+            if (denominador == 4) {
+                direcao = -1;
+            } else if (denominador == 1) {
+                direcao = 1;
+            }
+        }
+
+        System.out.println("S = " + soma);
+
+        sc.close();
+    }
+}

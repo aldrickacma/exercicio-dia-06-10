@@ -1,0 +1,56 @@
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Quantidade de criancas:");
+        int n = sc.nextInt();
+
+        int meninas = 0, meninos = 0;
+        int mortesMeninas = 0, mortesMeninos = 0;
+        int ate24Meses = 0;
+
+        for (int i = 1; i <= n; i++) {
+            System.out.println("Sexo (M/F):");
+            char sexo = Character.toUpperCase(sc.next().charAt(0));
+
+            System.out.println("Tempo de vida em meses:");
+            int meses = sc.nextInt();
+
+            if (meses <= 24) {
+                ate24Meses++;
+            }
+
+            if (sexo == 'F') {
+                meninas++;
+                if (meses < 12) {
+                    mortesMeninas++;
+                }
+            } else if (sexo == 'M') {
+                meninos++;
+                if (meses < 12) {
+                    mortesMeninos++;
+                }
+            }
+        }
+
+        if (meninas > 0) {
+            System.out.println("Percentual feminino: "
+                    + (mortesMeninas * 100.0 / meninas) + "%");
+        }
+
+        if (meninos > 0) {
+            System.out.println("Percentual masculino: "
+                    + (mortesMeninos * 100.0 / meninos) + "%");
+        }
+
+        if (n > 0) {
+            System.out.println("Percentual com ate 24 meses: "
+                    + (ate24Meses * 100.0 / n) + "%");
+        }
+
+        sc.close();
+    }
+}
